@@ -160,6 +160,7 @@ def replay_score(score, hangman):
         score.current_total_score = 0
         score.score_display.config(text = "SCORE:  " + str(score.current_total_score))
         replay_win_count(hangman)
+        hangman.replay()
 
 def replay_win_count(hangman):
     """Resets the win count."""
