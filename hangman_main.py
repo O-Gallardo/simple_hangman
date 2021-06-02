@@ -56,7 +56,7 @@ class MainGame():
         self.stage_image.grid(row=0, columnspan=9)
         self.word_display.grid(row=1, columnspan = 9, sticky=[W, E])
         self.win_display.grid(row=5, columnspan =9, sticky =[W, E])
-        button_replay = Button(self.master, text="REPLAY", command = lambda:[replay_score(score, hangman), self.replay()],
+        button_replay = Button(self.master, text="REPLAY", command = lambda:[replay_score(score, hangman)],
                                padx = 20, pady = 20, width = 3, bg = "grey", fg = "white")
         button_replay.grid(row=4, column=8)
 
@@ -158,8 +158,8 @@ def replay_score(score, hangman):
     r_message = tkinter.messagebox.askyesno(message = "Are you sure you want to replay? Replay will reset your current score.")
     if r_message:
         score.current_total_score = 0
-    score.score_display.config(text = "SCORE:  " + str(score.current_total_score))
-    replay_win_count(hangman)
+        score.score_display.config(text = "SCORE:  " + str(score.current_total_score))
+        replay_win_count(hangman)
 
 def replay_win_count(hangman):
     """Resets the win count."""
