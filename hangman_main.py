@@ -8,12 +8,6 @@ import tkinter.messagebox
 from messagebox import MessageBox
 from score import Score
 
-root = Tk()
-root.title("Hangman")
-root.config(bg = "black")
-wlist = word_list
-root.iconbitmap("./icon.ico")
-
 class MainGame():
     def __init__(self, master, wlist):
         """Sets the attributes for the hangman game."""
@@ -146,19 +140,23 @@ def game_play(letter, hangman, message, root, score):
             score.score_display.config(text="SCORE:  " + str(score.current_total_score))
             replay_win_count(hangman)
 
-### SETTING INSTANCES OF THE CLASSES ABOVE ###
-hangman = MainGame(root, wlist)
-hangman.display_widgets()
-message = MessageBox(root)
-hangman.add_buttons(hangman, message, root)
-score = Score(root)
-score.load_hscore()
-score.show_score()
-
-### END OF GAMELOOP ###
-root.mainloop()
-
        
 if __name__ == "__main__":
-	pass
+	root = Tk()
+	root.title("Hangman")
+	root.config(bg = "black")
+	wlist = word_list
+	root.iconbitmap("./icon.ico")
+	
+	### SETTING INSTANCES OF THE CLASSES ABOVE ###
+	hangman = MainGame(root, wlist)
+	hangman.display_widgets()
+	message = MessageBox(root)
+	hangman.add_buttons(hangman, message, root)
+	score = Score(root)
+	score.load_hscore()
+	score.show_score()
+
+	### END OF GAMELOOP ###
+	root.mainloop()
 
